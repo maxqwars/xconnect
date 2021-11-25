@@ -1,0 +1,55 @@
+{
+  "name": "@maxqwars/xconn",
+  "version": "0.0.1",
+  "description": "XConnect is an open library for working with AniLibria REST API's. Using a modern API based on promises.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "Maxim \"maxqwars\" Maximenko <maxqwars@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxqwars/xconn.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "rest-api",
+    "typescript-library",
+    "anilibria-api"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write src/**/*.ts",
+    "lint": "eslint src/**",
+    "prepare": "npm run build",
+    "test": "jest",
+    "build:docs": "typedoc --out docs src/index.ts",
+    "serve:docs": "serve ./docs"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "private": false,
+  "devDependencies": {
+    "@types/jest": "^27.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.2",
+    "jest": "^27.1.1",
+    "prettier": "2.3.2",
+    "serve": "^13.0.2",
+    "ts-jest": "^27.0.5",
+    "ts-node": "^10.2.1",
+    "typedoc": "^0.22.10",
+    "typescript": "^4.4.2"
+  },
+  "bugs": {
+    "url": "https://github.com/maxqwars/xconn/issues"
+  },
+  "homepage": "https://github.com/maxqwars/xconn#readme",
+  "directories": {
+    "doc": "docs"
+  }
+}

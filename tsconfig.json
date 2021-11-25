@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "alwaysStrict": true,
+    "target": "ES2015",
+    "rootDir": "src",
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "declaration": true,
+    "resolveJsonModule": true
+  },
+  "include": ["src"],
+  "exclude": ["**/__tests__/*", "node_modules/"]
+}
