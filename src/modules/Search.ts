@@ -20,10 +20,11 @@ export default class Search {
   }
 
   searchTitles(query: ISearchTitleQueryParams): Promise<ITitle | null> {
+    // Create URLBuilder instance and set used API endpoint
     const U_BUILDER = new URLBuilder(this._baseURL, this._useHttps);
-
     U_BUILDER.useEndpoint(API_ENDPOINTS_ENUM.SEARCH_TITLES);
 
+    // Add query params if needed
     if (typeof query !== 'undefined') {
       const Q_BUILDER = new SearchQueryBuilder();
       Q_BUILDER.search(query.search)
@@ -45,8 +46,10 @@ export default class Search {
       U_BUILDER.useQuery(Q_BUILDER.build());
     }
 
+    // Build summary URL
     const SUMMARY_URL = U_BUILDER.build();
 
+    // Send request
     return new Promise((resolve, reject) => {
       fetch(SUMMARY_URL)
         .then((response) => response.json())

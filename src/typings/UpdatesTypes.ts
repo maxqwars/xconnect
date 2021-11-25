@@ -19,3 +19,19 @@ export interface IGetUpdatesQueryParams {
   playlistType?: PLAYLIST_TYPE_ENUM;
   after?: number;
 }
+
+export interface IGetYouTubeQueryParams {
+  filter?: string[];
+  remove?: string[];
+  limit?: number;
+  since?: number;
+  after?: number;
+}
+
+export interface IYouTubeVideo {
+  id?: number;
+  title?: string;
+  image?: string;
+  youtubeId?: string;
+  timestamp?: number;
+}

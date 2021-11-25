@@ -23,6 +23,6 @@ export enum API_ENDPOINTS_ENUM {
   GET_TITLES = 'getTitles',
   GET_UPDATES = 'getUpdates',
   GET_YEARS = 'getYears',
-  GET_TUBE = 'getYouTube',
+  GET_YOUTUBE = 'getYouTube',
   SEARCH_TITLES = 'searchTitles',
 }

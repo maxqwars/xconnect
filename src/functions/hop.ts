@@ -20,16 +20,7 @@ import {
   TITLE_STATUS_CODES_ENUM,
 } from '../typings/DatabaseTypes';
 
-function noUndefined<T>(fn: CallableFunction): T | null {
-  try {
-    const result = fn();
-    return result !== null && typeof result !== 'undefined'
-      ? (result as T)
-      : null;
-  } catch (e) {
-    return null;
-  }
-}
+import noUndefined from './noUndefined';
 
 function hop(raw: { [key: string]: unknown }): ITitle {
   /* Simple (not nested) properties */

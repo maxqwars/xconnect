@@ -53,7 +53,7 @@ const requestUrl = U_BUILDER()
 - [ ] getChanges
 - [ ] getSchedule
 - [x] getRandomTitle
-- [ ] getYouTube
+- [x] getYouTube
 - [ ] getFeed
 - [x] getYears
 - [x] getGenres
