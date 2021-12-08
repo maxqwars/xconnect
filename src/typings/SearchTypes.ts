@@ -3,18 +3,25 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-import { ITitleQueryParams, TITLE_SEASON_CODES_ENUM } from './DatabaseTypes';
+import {
+  IFormatQueryParams,
+  IShiftQueryParams,
+  ITypeQueryParams,
+} from './SharedTypes';
 
-export interface ISearchTitleQueryParams extends ITitleQueryParams {
+import { TITLE_SEASON_CODE_ENUM } from '../constants/TITLE_SEASON_CODE_ENUM';
+
+export interface ISearchTitlesQueryParams
+  extends IFormatQueryParams,
+    ITypeQueryParams,
+    IShiftQueryParams {
   search: string;
-  year: string[];
-  genres: string[];
-  seasonCode: TITLE_SEASON_CODES_ENUM[];
-  voice: string[];
-  translator: string[];
-  editing: string[];
-  decor: string[];
-  timing: string[];
-  limit: number;
-  after: number;
+  year?: number[];
+  seasonCode?: TITLE_SEASON_CODE_ENUM[];
+  genres?: string[];
+  voice?: string[];
+  translator?: string[];
+  editing?: string[];
+  decor?: string[];
+  timing?: string[];
 }

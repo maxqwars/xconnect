@@ -3,12 +3,6 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-/**
- * List of procedures available for calling
- *
- * @export
- * @enum {number}
- */
 export enum API_ENDPOINTS_ENUM {
   ADVANCED_SEARCH = 'advancedSearch',
   GET_CACHING_NODES = 'getCachingNodes',
@@ -25,4 +19,5 @@ export enum API_ENDPOINTS_ENUM {
   GET_YEARS = 'getYears',
   GET_YOUTUBE = 'getYouTube',
   SEARCH_TITLES = 'searchTitles',
+  NONE = '',
 }

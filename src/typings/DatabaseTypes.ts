@@ -3,208 +3,95 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-/**
- * Release description format type (plain, html)
- *
- * @export
- * @enum {number}
- */
-export enum DESCRIPTION_TYPE_ENUM {
-  PLAIN = 'plain',
-  HTML = 'html',
-}
+import { IFormatQueryParams, ITypeQueryParams } from './SharedTypes';
 
-export enum PLAYLIST_TYPE_ENUM {
-  ARRAY = 'array',
-  OBJECT = 'object',
-}
+import { TITLE_CONTENT_TYPE_CODE_ENUM } from '../constants/TITLE_CONTENT_TYPE_CODE_ENUM';
+import { TITLE_SEASON_CODE_ENUM } from '../constants/TITLE_SEASON_CODE_ENUM';
+import { TITLE_STATUS_CODE_ENUM } from '../constants/TITLE_STATUS_CODE_ENUM';
 
 /**
- * A list of base64 resources to include in the response
+ * Query params for getTitle method
  *
  * @export
- * @enum {number}
+ * @interface IGetTitleQueryParams
+ * @extends {IFormatQueryParams}
+ * @extends {ITypeQueryParams}
  */
-export enum TITLE_INCLUDE_RESOURCES_ENUM {
-  RAW_POSTER = 'raw_poster',
-}
-
-/**
- * Current status of work on the release
- *
- * @export
- * @enum {number}
- */
-export enum TITLE_STATUS_CODES_ENUM {
-  IN_PROCESS = 1,
-  COMPLETED = 2,
-  HIDDEN = 3, // ! ???
-  NOT_ONGOING = 4, // ! ???
-}
-
-export enum TITLE_CONTENT_TYPE_CODES_ENUM {
-  MOVIE = 0,
-  TV = 1,
-  OVA = 2,
-  ONA = 3,
-  SPECIAL = 4,
-}
-
-export enum TITLE_SEASON_CODES_ENUM {
-  WINTER = 1,
-  SPRING = 2,
-  SUMMER = 3,
-  AUTUMN = 4,
-}
-
-/**
- * Request parameters for methods working with data in the `ITitle` format
- *
- * @export
- * @interface ITitleQueryParams
- */
-export interface ITitleQueryParams {
-  /**
-   * Release database ID
-   *
-   * @type {number}
-   * @memberof ITitleQueryParams
-   */
-  id?: number;
-
-  /**
-   * Release characters ID
-   *
-   * @type {string}
-   * @memberof ITitleQueryParams
-   */
+export interface IGetTitleQueryParams
+  extends IFormatQueryParams,
+    ITypeQueryParams {
   code?: string;
-
-  /**
-   * ID of the associated torrent file
-   *
-   * @type {number}
-   * @memberof ITitleQueryParams
-   */
+  id?: number;
   torrentId?: number;
-
-  /**
-   * List of fields to include in the response
-   *
-   * @type {string[]}
-   * @memberof ITitleQueryParams
-   */
-  filter?: string[];
-
-  /**
-   * List of fields to exclude from the response
-   *
-   * @type {string[]}
-   * @memberof ITitleQueryParams
-   */
-  remove?: string[];
-
-  /**
-   * A list of base64 resources to include in the response
-   *
-   * @type {TITLE_INCLUDE_RESOURCES_ENUM[]}
-   * @memberof ITitleQueryParams
-   */
-  include?: TITLE_INCLUDE_RESOURCES_ENUM[];
-
-  /**
-   * Required format of the release description
-   *
-   * @type {DESCRIPTION_TYPE_ENUM}
-   * @memberof ITitleQueryParams
-   */
-  descriptionType?: DESCRIPTION_TYPE_ENUM;
-
-  /**
-   * Playlist format of the player
-   *
-   * @type {PLAYLIST_TYPE_ENUM}
-   * @memberof ITitleQueryParams
-   */
-  playlistType?: PLAYLIST_TYPE_ENUM;
 }
 
 /**
- * List of names of the work
+ * Query params for getTitles method
  *
  * @export
- * @interface ITitleNames
+ * @interface IGetTitlesQueryParams
+ * @extends {IFormatQueryParams}
+ * @extends {ITypeQueryParams}
  */
+export interface IGetTitlesQueryParams
+  extends IFormatQueryParams,
+    ITypeQueryParams {
+  codeList?: string[];
+  idList?: number[];
+}
+
 export interface ITitleNames {
-  /**
-   * Russian name
-   *
-   * @type {string}
-   * @memberof ITitleNames
-   */
-  ru: string | null;
-
-  /**
-   * English name
-   *
-   * @type {string}
-   * @memberof ITitleNames
-   */
+  alternative: string | null;
   en: string | null;
+  ru: string | null;
 }
 
-/**
- * Progress on the release
- *
- * @export
- * @interface ITitleStatus
- */
 export interface ITitleStatus {
+  code: TITLE_STATUS_CODE_ENUM | null;
   string: string | null;
-  code: TITLE_STATUS_CODES_ENUM | null;
 }
 
 export interface ITitlePoster {
-  url: string | null;
-  updatedTimestamp: number | null;
   rawBase64File: string | null;
+  updatedTimestamp: number | null;
+  url: string | null;
 }
 
 export interface ITitleType {
+  code: TITLE_CONTENT_TYPE_CODE_ENUM | null;
   fullString: string | null;
-  code: TITLE_CONTENT_TYPE_CODES_ENUM | null;
-  string: string | null;
-  series: number | null;
   length: string | null;
+  series: number | null;
+  string: string | null;
 }
 
 export interface ITitleTeam {
-  voice: string[] | null;
-  translator: string[] | null;
-  editing: string[] | null;
   decor: string[] | null;
+  editing: string[] | null;
   timing: string[] | null;
+  translator: string[] | null;
+  voice: string[] | null;
 }
 
 export interface ITitleSeason {
-  code: TITLE_SEASON_CODES_ENUM | null;
+  code: TITLE_SEASON_CODE_ENUM | null;
   string: string | null;
-  year: number | null;
   weekDay: number | null;
+  year: number | null;
 }
 
 export interface ITitleBlocked {
-  blocked: boolean | null;
   bakanim: boolean | null;
+  blocked: boolean | null;
 }
 
-export interface IPlayerSeries {
+export interface ISeries {
   first: number | null;
   last: number | null;
   string: string | null;
 }
 
-export interface IPlayerPlaylist {
+export interface IPlayerObjectPlaylist {
   [key: number]: {
     id: number;
     createdTimestamp: number;
@@ -219,28 +106,56 @@ export interface IPlayerPlaylist {
 export interface ITitlePlayer {
   alternativePlayer: string | null;
   host: string | null;
+  playlist: IPlayerObjectPlaylist | null;
+  series: ISeries | null;
+}
 
-  series: IPlayerSeries | null;
+export interface ITorrentQualityData {
+  encoder: string | null;
+  lq_audio: boolean | null;
+  resolution: number | null;
+  string: string | null;
+  type: string | null;
+}
 
-  playlist: IPlayerPlaylist | null;
+export interface ITorrent {
+  quality: ITorrentQualityData;
+  downloads: number | number;
+  leechers: number | number;
+  metadata: null;
+  raw_base64_file: string | null;
+  seeders: number | number;
+  series: ISeries | null;
+  torrentId: number | null;
+  totalSize: number | number;
+  uploadedTimestamp: number | null;
+  url: string | null;
+}
+
+export interface ITitleTorrents {
+  list: ITorrent[] | null;
+  series: ISeries | null;
 }
 
 export interface ITitle {
-  id: number | null;
+  // Primitive types
+  announce: string | null;
   code: string | null;
   description: string | null;
-  inFavorites: number | null;
-  announce: string | null;
-  updated: number | null;
-  lastChange: number | null;
   genres: string[] | null;
+  id: number | null;
+  inFavorites: number | null;
+  lastChange: number | null;
+  updated: number | null;
 
-  names: ITitleNames | null;
-  status: ITitleStatus | null;
-  poster: ITitlePoster | null;
-  type: ITitleType | null;
-  team: ITitleTeam | null;
-  season: ITitleSeason | null;
+  // Combine types
   blocked: ITitleBlocked | null;
+  names: ITitleNames | null;
   player: ITitlePlayer | null;
+  poster: ITitlePoster | null;
+  season: ITitleSeason | null;
+  status: ITitleStatus | null;
+  team: ITitleTeam | null;
+  torrents: ITitleTorrents | null;
+  type: ITitleType | null;
 }
