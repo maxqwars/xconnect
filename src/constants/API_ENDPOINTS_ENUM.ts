@@ -3,6 +3,12 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
+/**
+ * Список доступных для вызова методов API
+ *
+ * @export
+ * @enum {number}
+ */
 export enum API_ENDPOINTS_ENUM {
   ADVANCED_SEARCH = 'advancedSearch',
   GET_CACHING_NODES = 'getCachingNodes',

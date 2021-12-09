@@ -3,6 +3,12 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
+/**
+ * Список дня недели релиза
+ *
+ * @export
+ * @enum {number}
+ */
 export enum WEEK_DAY_ENUM {
   MONDAY = 0,
   TUESDAY = 1,

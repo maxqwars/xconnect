@@ -1,21 +1,34 @@
-![Xconnect logo](repo-cover.svg)
+![XConnect logo](repo-cover.svg)
 
 # XConnect V2
 
 Открытая библиотека для работы с AniLibria REST API, построенная на использовании ES6 Promises.
 Отличная основа для построения проектов с использованием этого API.
 
-- [Live demo](https://codesandbox.io/embed/xconnect-random-release-otyzs?fontsize=14&hidenavigation=1&theme=dark)
-- [Online docs](https://maxqwars.github.io/xconnect/)
+<!-- - [Live demo](https://codesandbox.io/embed/xconnect-random-release-otyzs?fontsize=14&hidenavigation=1&theme=dark)
+- [Online docs](https://maxqwars.github.io/xconnect/) -->
 
-### Установка:
+## Установка:
 
-> Установка через пакетный менеджер недоступна в данный момент, пожалуйста склонируйте репозиторий в локальную папку.
+> Установка через пакетный менеджер недоступна в данный момент, пожалуйста склонируйте репозиторий и установите как локальный пакет.
 
-### Реализованные методы API:
+## Архитектура
+
+Структура XConnect
+
+| Папка     | Описание                                             |
+| --------- | ---------------------------------------------------- |
+| constants | Константы и перечисления                             |
+| core      | "Корневые" классы, основа модулей                    |
+| functions | Вспомогательные функции                              |
+| modules   | Модули для простого взаимодействия с API             |
+| typings   | Типы                                                 |
+| utils     | Утилиты в отличии от функций не доступны для импорта |
+
+## Реализованные методы API:
 
 - [x] getTitle
-- [ ] getTitles
+- [X] getTitles
 - [x] getUpdates
 - [ ] getChanges
 - [ ] getSchedule

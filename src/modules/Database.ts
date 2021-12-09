@@ -13,11 +13,38 @@ import GetTitlesQueryBuilder from '../core/GetTitlesQueryBuilder';
 import UrlBuilder from '../core/UrlBuilder';
 import titleNamesConverter from '../functions/titleNamesConverter';
 
+/**
+ * Модуль для работы с базой данных релизов.
+ * Позволяет вызывать методы API:
+ * - getRandomTitle: Возвращает случайный релиз
+ * - getTitle: Возвращает конкретный релиз
+ * - getTitles: Возвращает несколько релизов за один запрос
+ * - getYears: Возвращает список доступных годов
+ * - getGenres: Возвращает список всех доступных жанров
+ *
+ * @export
+ * @class Database
+ * @extends {CoreModule}
+ */
 export default class Database extends CoreModule {
+  /**
+   * Создает экземпляр Database
+   *
+   * @param {string} baseUrl Базовый URL (домен). Без указания протокола, пример: api.anilibria.tv/v2/
+   * @param {boolean} [useHttps=true] Использовать ли защищенное соединение (https)
+   * @memberof Database
+   */
   constructor(baseUrl: string, useHttps = true) {
     super(baseUrl, useHttps);
   }
 
+  /**
+   * Возвращает случайный релиз из базы данных
+   *
+   * @param {DatabaseTypes.IGetTitleQueryParams} [query] Опциональные параметры запроса
+   * @return {*}  {(Promise<DatabaseTypes.ITitle | null>)} Результат запроса, данные о релизе если удачно и null при ошибке.
+   * @memberof Database
+   */
   public async getRandomTitle(
     query?: DatabaseTypes.IGetTitleQueryParams
   ): Promise<DatabaseTypes.ITitle | null> {
@@ -46,6 +73,13 @@ export default class Database extends CoreModule {
     }
   }
 
+  /**
+   * Получить информацию о релизе по **_id_** или **_коду_**
+   *
+   * @param {DatabaseTypes.IGetTitleQueryParams} [query] Опциональные параметры запроса
+   * @return {*}  {(Promise<DatabaseTypes.ITitle | null>)} Результат запроса, данные о релизе если удачно и null при ошибке.
+   * @memberof Database
+   */
   public async getTitle(
     query?: DatabaseTypes.IGetTitleQueryParams
   ): Promise<DatabaseTypes.ITitle | null> {
@@ -89,6 +123,13 @@ export default class Database extends CoreModule {
     }
   }
 
+  /**
+   * Возвращает несколько релизов за один запрос, используя список **_кодов_** или **_id_**
+   *
+   * @param {DatabaseTypes.IGetTitlesQueryParams} [query]
+   * @return {*}  {(Promise<DatabaseTypes.ITitle[] | null>)}
+   * @memberof Database
+   */
   public async getTitles(
     query?: DatabaseTypes.IGetTitlesQueryParams
   ): Promise<DatabaseTypes.ITitle[] | null> {
