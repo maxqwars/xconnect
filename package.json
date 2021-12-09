@@ -1,13 +1,13 @@
 {
   "name": "@maxqwars/xconn",
-  "version": "0.0.1",
+  "version": "2.0.0",
   "description": "XConnect is an open library for working with AniLibria REST API's. Using a modern API based on promises.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "author": "Maxim \"maxqwars\" Maximenko <maxqwars@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maxqwars/xconn.git"
+    "url": "git+https://github.com/surrogate-logic/xconnect.git"
   },
   "license": "MIT",
   "keywords": [
@@ -38,6 +38,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "husky": "^7.0.2",
     "jest": "^27.1.1",
+    "nodemon": "^2.0.15",
     "prettier": "2.3.2",
     "serve": "^13.0.2",
     "ts-jest": "^27.0.5",
@@ -46,9 +47,9 @@
     "typescript": "^4.4.2"
   },
   "bugs": {
-    "url": "https://github.com/maxqwars/xconn/issues"
+    "url": "https://github.com/surrogate-logic/xconnect/issues"
   },
-  "homepage": "https://github.com/maxqwars/xconn#readme",
+  "homepage": "https://github.com/surrogate-logic/xconnect#readme",
   "directories": {
     "doc": "docs"
   }

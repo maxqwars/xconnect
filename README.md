@@ -1,54 +1,34 @@
-![Xconnect logo](.github/rep-cover.png)
+![XConnect logo](repo-cover.svg)
 
-# XConnect
+# XConnect V2
 
-XConnect is an open library for working with AniLibria REST API. Using a modern API based on promises.
+Открытая библиотека для работы с AniLibria REST API, построенная на использовании ES6 Promises.
+Отличная основа для построения проектов с использованием этого API.
 
-[Live demo](https://codesandbox.io/embed/xconnect-random-release-otyzs?fontsize=14&hidenavigation=1&theme=dark) -
-[Online docs](https://maxqwars.github.io/xconnect/)
+<!-- - [Live demo](https://codesandbox.io/embed/xconnect-random-release-otyzs?fontsize=14&hidenavigation=1&theme=dark)
+- [Online docs](https://maxqwars.github.io/xconnect/) -->
 
-## Installation
+## Установка:
 
-```
-npm i @maxqwars/xconnect
-```
+> Установка через пакетный менеджер недоступна в данный момент, пожалуйста склонируйте репозиторий и установите как локальный пакет.
 
-## Example of working with XConnect
+## Архитектура
 
-Getting information about a random release using XConnect components
+Структура XConnect
 
-#### Using the XConnect module (recommended)
+| Папка     | Описание                                             |
+| --------- | ---------------------------------------------------- |
+| constants | Константы и перечисления                             |
+| core      | "Корневые" классы, основа модулей                    |
+| functions | Вспомогательные функции                              |
+| modules   | Модули для простого взаимодействия с API             |
+| typings   | Типы                                                 |
+| utils     | Утилиты в отличии от функций не доступны для импорта |
 
-```
-import { Database } from '@maxqwars/xconnect'
-
-const XDatabase = new Database('api.service.com/v2/')
-
-XDatabase.getRandomTitle({ /* query params */ })
-  .then(title => console.log(title))
-  .catch(e => onErrorCallback())
-
-```
-
-#### Using core classes (if target platform not support fetch, async/await, Promises)
-
-```
-import { URLBuilder, TitleQueryBuilder, API_ENDPOINTS_ENUM } from '@maxqwars/xconnect'
-
-const U_BUILDER = new URLBuilder('api.service.com/v2/', true)
-const QUERY_BUILDER = new TitleQueryBuilder()
-
-const requestUrl = U_BUILDER()
-  .useEndpoint(API_ENDPOINTS_ENUM.GET_TITLE)
-  .useQuery(QUERY_BUILDER.code('release-code').build())
-  .build()
-
-```
-
-## Current API support status
+## Реализованные методы API:
 
 - [x] getTitle
-- [ ] getTitles
+- [X] getTitles
 - [x] getUpdates
 - [ ] getChanges
 - [ ] getSchedule
@@ -60,9 +40,9 @@ const requestUrl = U_BUILDER()
 - [ ] getCachingNodes
 - [ ] getTeam
 - [ ] getSeedStats
-- [ ] getRSS
+- [ ] getRSS (не будет реализован)
 - [x] searchTitles
 - [ ] advancedSearch
-- [ ] getFavorites
-- [ ] addFavorite
-- [ ] delFavorite
+- [ ] getFavorites (не будет реализован)
+- [ ] addFavorite (не будет реализован)
+- [ ] delFavorite (не будет реализован)

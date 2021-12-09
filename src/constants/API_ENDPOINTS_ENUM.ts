@@ -4,7 +4,7 @@
 // https://opensource.org/licenses/MIT
 
 /**
- * List of procedures available for calling
+ * Список доступных для вызова методов API
  *
  * @export
  * @enum {number}
@@ -25,4 +25,5 @@ export enum API_ENDPOINTS_ENUM {
   GET_YEARS = 'getYears',
   GET_YOUTUBE = 'getYouTube',
   SEARCH_TITLES = 'searchTitles',
+  NONE = '',
 }
