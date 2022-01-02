@@ -16,13 +16,17 @@
     "anilibria-api"
   ],
   "scripts": {
+    "build:docs": "typedoc --out docs src/index.ts",
     "build": "tsc",
     "format": "prettier --write src/**/*.ts",
     "lint": "eslint src/**",
+    "postversion": "git push && git push --tags",
     "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "serve:docs": "serve ./docs",
     "test": "jest",
-    "build:docs": "typedoc --out docs src/index.ts",
-    "serve:docs": "serve ./docs"
+    "version": "npm run format && git add -A src",
   },
   "files": [
     "dist/**/*"
