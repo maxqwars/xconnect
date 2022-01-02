@@ -12,6 +12,7 @@ import GetUpdatesQueryBuilder from '../core/GetUpdatesQueryBuilder';
 import GetYouTubeQueryBuilder from '../core/GetYouTubeQueryBuilder';
 import UrlBuilder from '../core/UrlBuilder';
 import youtubeNamesConverter from '../functions/youtubeNamesConverter';
+import { titleNamesConverter } from '..';
 
 export default class Updates extends CoreModule {
   constructor(baseUrl: string, useHttps = true) {
@@ -84,8 +85,11 @@ export default class Updates extends CoreModule {
 
     const SUM_URL = U_BUILD.build();
 
-    console.log(SUM_URL);
-
-    throw new Error('Not Implemented');
+    try {
+      const res = await (await fetch(SUM_URL)).json();
+      return res.map((src) => titleNamesConverter(src));
+    } catch (e) {
+      return null;
+    }
   }
 }
