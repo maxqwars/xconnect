@@ -1,5 +1,5 @@
 // Copyright (c) 2022 Maxim "maxqwars" Maximenko
-// 
+//
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
@@ -12,7 +12,7 @@ import {
   ITitlePlayer,
   ITitleSeason,
   ITitleStatus,
-  ITitlePoster, 
+  ITitlePoster,
   IPosterImage,
   ITitleTeam,
   ITitleTorrents,
@@ -116,25 +116,29 @@ export default function titleNamesConverter(source: {
   /* -------------------------------------------------------------------------- */
   /*                                   Poster                                   */
   /* -------------------------------------------------------------------------- */
-const poster = ((): ITitlePoster | null => {
-
-    const fn = (data: {[key: string]: string}): IPosterImage => {
+  const poster = ((): ITitlePoster | null => {
+    const fn = (data: { [key: string]: string }): IPosterImage => {
       return {
-        url: noUndefined<string>(() => {data['url']}),
-        rawBase64File: noUndefined<string>(() => data['raw_base64_file'])
-      }
-    }
+        url: noUndefined<string>(() => {
+          data['url'];
+        }),
+        rawBase64File: noUndefined<string>(() => data['raw_base64_file']),
+      };
+    };
 
     try {
-      const poster = source['poster'] as { [key: string]: { [key: string]: string } }
+      const poster = source['poster'] as {
+        [key: string]: { [key: string]: string };
+      };
 
       return {
         small: fn(poster['small']),
         medium: fn(poster['medium']),
-        original: fn(poster['original'])
-      }
-
-    } catch (e) { return null }
+        original: fn(poster['original']),
+      };
+    } catch (e) {
+      return null;
+    }
   })();
 
   /* -------------------------------------------------------------------------- */
