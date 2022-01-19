@@ -56,7 +56,7 @@ export interface IPosterImage {
   url: string | null;
 }
 
-export interface ITitlePoster {
+export interface ITitlePosters {
   small: IPosterImage | null;
   medium: IPosterImage | null;
   original: IPosterImage | null;
@@ -157,7 +157,7 @@ export interface ITitle {
   blocked: ITitleBlocked | null;
   names: ITitleNames | null;
   player: ITitlePlayer | null;
-  poster: ITitlePoster | null;
+  poster: ITitlePosters | null;
   season: ITitleSeason | null;
   status: ITitleStatus | null;
   team: ITitleTeam | null;

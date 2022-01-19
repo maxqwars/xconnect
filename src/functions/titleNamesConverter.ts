@@ -12,7 +12,7 @@ import {
   ITitlePlayer,
   ITitleSeason,
   ITitleStatus,
-  ITitlePoster,
+  ITitlePosters,
   IPosterImage,
   ITitleTeam,
   ITitleTorrents,
@@ -116,7 +116,7 @@ export default function titleNamesConverter(source: {
   /* -------------------------------------------------------------------------- */
   /*                                   Poster                                   */
   /* -------------------------------------------------------------------------- */
-  const poster = ((): ITitlePoster | null => {
+  const poster = ((): ITitlePosters | null => {
     const fn = (data: { [key: string]: string }): IPosterImage => {
       return {
         url: noUndefined<string>(() => {
@@ -127,7 +127,7 @@ export default function titleNamesConverter(source: {
     };
 
     try {
-      const poster = source['poster'] as {
+      const poster = source['posters'] as {
         [key: string]: { [key: string]: string };
       };
 
