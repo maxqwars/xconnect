@@ -1,5 +1,5 @@
-// Copyright (c) 2021 Maxim "maxqwars" Maximenko <maxqwars@gmail.com>
-//
+// Copyright (c) 2022 Maxim "maxqwars" Maximenko
+// 
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
@@ -51,10 +51,15 @@ export interface ITitleStatus {
   string: string | null;
 }
 
-export interface ITitlePoster {
+export interface IPosterImage {
   rawBase64File: string | null;
-  updatedTimestamp: number | null;
   url: string | null;
+}
+
+export interface ITitlePoster {
+  small: IPosterImage | null;
+  medium: IPosterImage | null;
+  original: IPosterImage | null;
 }
 
 export interface ITitleType {
