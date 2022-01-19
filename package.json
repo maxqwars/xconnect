@@ -1,6 +1,6 @@
 {
   "name": "@maxqwars/xconn",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "XConnect is an open library for working with AniLibria REST API's. Using a modern API based on promises.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
