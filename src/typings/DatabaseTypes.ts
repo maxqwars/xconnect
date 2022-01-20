@@ -157,7 +157,7 @@ export interface ITitle {
   blocked: ITitleBlocked | null;
   names: ITitleNames | null;
   player: ITitlePlayer | null;
-  poster: ITitlePosters | null;
+  posters: ITitlePosters | null;
   season: ITitleSeason | null;
   status: ITitleStatus | null;
   team: ITitleTeam | null;
