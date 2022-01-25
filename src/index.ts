@@ -49,3 +49,8 @@ export { default as GetUpdatesQueryBuilder } from './core/GetUpdatesQueryBuilder
 /* -------------------------------------------------------------------------- */
 export { default as Database } from './modules/Database';
 export { default as Updates } from './modules/Updates';
+
+/* -------------------------------------------------------------------------- */
+/*                                    Utils                                   */
+/* -------------------------------------------------------------------------- */
+export { default as UrlTools } from './utils/UrlTools';
