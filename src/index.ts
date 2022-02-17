@@ -53,4 +53,6 @@ export { default as Updates } from './modules/Updates';
 /* -------------------------------------------------------------------------- */
 /*                                    Utils                                   */
 /* -------------------------------------------------------------------------- */
-export { default as UrlTools } from './utils/UrlTools';
+// export { default as UrlTools } from './utils/UrlTools';
+
+import { UrlTools } from '@maxqwars/metaform'

@@ -56,5 +56,8 @@
   "homepage": "https://github.com/surrogate-logic/xconnect#readme",
   "directories": {
     "doc": "docs"
+  },
+  "dependencies": {
+    "@maxqwars/metaform": "^0.0.2"
   }
 }
